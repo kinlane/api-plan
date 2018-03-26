@@ -4,12 +4,19 @@ title: API Plan
 ---
 <h1>API Plan</h1>
 
-{% for lines in site.plan %}
+{% assign lines = site.plan | sort: 'x-sort' %}
 
 {% for plan in site.plan %}
 
-  {% assign isLine = 1 %}
+  {% assign is_line = 0 %}
+  {% for class in plan.class %}
+    {% if class == "line" %}
+      {% assign is_line = 1 %}
+    {% endif %}
+  {% endfor %}
 
-
+  {% if is_line == 1 %}
+    {{ plan.properties.name }}<br />
+  {% endif %}
 
 {% endfor %}
