@@ -6,12 +6,6 @@ title: API Plan
 
 {% assign lines = site.plan | sort: 'properties.sort' %}
 
-<form>
-
-<input type="text" name="name" value="" /><br />
-
-</form>
-
 {% for plan in lines %}
 
   {% assign is_line = 0 %}
@@ -22,7 +16,15 @@ title: API Plan
   {% endfor %}
 
   {% if is_line == 1 %}
-    {{ plan.properties.name }} - {{ plan.path }}<br />
+    <form>
+    <input type="text" name="path" value="{{ plan.path }}" width="50" /><br />
+    <input type="text" name="name" value="{{ plan.properties.name }}" width="50" /><br />
+    <input type="text" name="sort" value="{{ plan.properties.sort }}" width="5" /><br />
+    <textarea name="" rows="5" cols="40">{{ plan.properties.description }}</textarea><br /
+    <input type="button" name="save" value="Save">
+    </form>
+    <hr />
+
   {% endif %}
 
 {% endfor %}
