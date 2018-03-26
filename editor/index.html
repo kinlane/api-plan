@@ -6,6 +6,12 @@ title: API Plan
 
 {% assign lines = site.plan | sort: 'properties.sort' %}
 
+<form>
+
+<input type="text" name="name" value="" /><br />
+
+</form>
+
 {% for plan in lines %}
 
   {% assign is_line = 0 %}
