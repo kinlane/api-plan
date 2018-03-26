@@ -2,7 +2,7 @@
 layout: default
 title: API Plan
 ---
-<h1>API Plan - Editor - 2</h1>
+<h1>API Plan - Editor - 3</h1>
 
 token: <input type="text" name="githubtoken" id="githubtoken" value="" width="50" /><br />
 <hr />
@@ -66,9 +66,9 @@ function addLine()
 </script>
 
 <form>
-<input type="text" name="add_line_name" value="" width="50" /><br />
-<input type="text" name="add_line_sort_sort" value="" width="5" /><br />
-<textarea name="add_line_description" rows="5" cols="40"></textarea><br />
+<input type="text" name="add_line_name" id="add_line_name" value="" width="50" /><br />
+<input type="text" name="add_line_sort_sort" id="add_line_sort_sort" value="" width="5" /><br />
+<textarea name="add_line_description" id="add_line_description" rows="5" cols="40"></textarea><br />
 <input type="button" name="save" value="Add Line" onclick="addLine();">
 </form>
 <hr />
