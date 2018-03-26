@@ -1,2 +1,3 @@
-# api-plan
-This is my api planning tool.
+# Jekyll Hypermedia Client
+
+This is a working Jekyll Hypermedia client
