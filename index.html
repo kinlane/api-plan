@@ -5,7 +5,15 @@ title: API Plan
 <h1>API Plan</h1>
 
 {% for plan in site.plan %}
+  {% assign is_line = 0 %}
+  {% for class in plan.class %}
+    {% if class == "line" %}
+      {% assign is_line = 1 %}
+    {% endif %}
+  {% endfor %}
 
-  {{ plan.properties.name }}<br />
+  {% if is_line == 1 %}
+    {{ plan.properties.name }}<br />
+  {% endif %}
 
 {% endfor %}

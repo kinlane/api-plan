@@ -1,6 +1,6 @@
 ---
 class:
-  - area
+  - line
 rel:
   - /rels/stop  
 properties:
