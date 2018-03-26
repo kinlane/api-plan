@@ -19,15 +19,15 @@ function addLine()
 	// Grab the github oauth token
 	var $github_token = document.getElementById("githubtoken").value;
 
-  var $name = document.getElementById("name").value;
+  var $name = document.getElementById("add_line_name").value;
   $line['properties']['name'] = $name;
   $file_name = $name.toLowerCase();
   $file_name = $file_name.replace(' ','-');
 
-  var $sort = document.getElementById("sort").value;
+  var $sort = document.getElementById("add_line_sort_sort").value;
   $line['properties']['sort'] = $sort;
 
-  var $description = document.getElementById("description").value;
+  var $description = document.getElementById("add_line_description").value;
   $line['properties']['description'] = $description;
 
   $line['entities'] = [];
@@ -71,7 +71,7 @@ function addLine()
 <input type="text" name="add_line_name" value="" width="50" /><br />
 <input type="text" name="add_line_sort_sort" value="" width="5" /><br />
 <textarea name="add_line_description" rows="5" cols="40"></textarea><br />
-<input type="button" name="save" value="Add Line">
+<input type="button" name="save" value="Add Line" onclick="addLine();">
 </form>
 <hr />
 
