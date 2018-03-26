@@ -2,11 +2,11 @@
 layout: default
 title: API Plan
 ---
-<h1>API Plan</h1>
+<h1>API Plan - 1</h1>
 
 {% assign lines = site.plan | sort: 'x-sort' %}
 
-{% for plan in site.plan %}
+{% for plan in lines %}
 
   {% assign is_line = 0 %}
   {% for class in plan.class %}
