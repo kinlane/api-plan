@@ -4,10 +4,73 @@ title: API Plan
 ---
 <h1>API Plan - Editor</h1>
 
+token: <input type="text" name="githubtoken" id="githubtoken" value="" width="50" /><br />
+
+<script>
+function addLine()
+	{
+
+  $line = {}
+  $line['class'] = ['line'];
+  $line['rel'] = ['/rels/line '];
+
+	$result = JSON.stringify($results);
+
+	// Grab the github oauth token
+	var $github_token = document.getElementById("githubtoken").value;
+
+  var $name = document.getElementById("name").value;
+  $line['properties']['name'] = $name;
+  $file_name = $name.toLowerCase();
+  $file_name = $file_name.replace(' ','-');
+
+  var $sort = document.getElementById("sort").value;
+  $line['properties']['sort'] = $sort;
+
+  var $description = document.getElementById("description").value;
+  $line['properties']['description'] = $description;
+
+  $line['entities'] = [];
+  $line['array'] = [];
+
+  $yaml_dump = jsyaml.dump($yaml_store);
+
+  console.log($yaml_dump);
+
+	// Set the user/org and the repo
+	$github_owner = 'kinlane';
+	$github_repo = 'api-plan';
+	$file_name = '_plan/' + $file_name;
+
+	$token = 'Authorization: token ' + $github_token;
+	$headers = [$token,'User-Agent: Streaam-To-github'];
+
+  // build the url
+	$githuburl = 'https://api.github.com/repos/' + $github_owner + '/' + $github_repo + '/contents/' + $file_name;
+
+	// write the file to Github repo using github API
+	$body = {};
+	$body['message'] = "Add New Line";
+	$body['content'] = btoa(unescape(encodeURIComponent($result)));
+	//$body['sha'] = $file_response['sha'];
+	$body_json = JSON.stringify($body);
+
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open("PUT", $githuburl, false ); // false for synchronous request
+	xmlHttp.setRequestHeader("Authorization",'token ' + $github_token);
+	xmlHttp.setRequestHeader("Content-Type", "application/json");
+	xmlHttp.send($body_json);
+
+	console.log(xmlHttp.responseText);
+	//$file_response = JSON.parse(xmlHttp.responseText);
+
+	}
+</script>
+
 <form>
-<input type="text" name="name" value="" width="50" /><br />
-<input type="text" name="sort" value="" width="5" /><br />
-<textarea name="" rows="5" cols="40"></textarea><br />
+<input type="text" name="add_line_name" value="" width="50" /><br />
+<input type="text" name="add_line_sort_sort" value="" width="5" /><br />
+<textarea name="add_line_description" rows="5" cols="40"></textarea><br />
 <input type="button" name="save" value="Add Line">
 </form>
 <hr />
@@ -29,7 +92,7 @@ title: API Plan
     <input type="text" name="path" value="{{ plan.path }}" width="50" /><br />
     <input type="text" name="name" value="{{ plan.properties.name }}" width="50" /><br />
     <input type="text" name="sort" value="{{ plan.properties.sort }}" width="5" /><br />
-    <textarea name="" rows="5" cols="40">{{ plan.properties.description }}</textarea><br />
+    <textarea name="description" rows="5" cols="40">{{ plan.properties.description }}</textarea><br />
     <input type="button" name="save" value="Save">
     </form>
     <hr />

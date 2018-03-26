@@ -2,7 +2,7 @@
 class:
   - line
 rel:
-  - /rels/stop  
+  - /rels/line  
 properties:
   sort: 1
   name: API Definitions
