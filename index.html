@@ -8,9 +8,14 @@ title: API Plan
 
 {% for plan in site.plan %}
   {% assign is_line = 0 %}
-  {% for class in plan.class %}
-    
+  {% for classes in plan.class %}
+    {% if classes == "line" %}
+      {% assign isLine = 1 %}
+    {% endif %}
   {% endfor %}
 
+  {% if isLine == 1 %}
+    {{ plan.properties.name }}<br />
+  {% endif %}
 
 {% endfor %}
