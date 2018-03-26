@@ -4,6 +4,15 @@ title: API Plan
 ---
 <h1>API Plan - Editor</h1>
 
+<form>
+<input type="text" name="name" value="" width="50" /><br />
+<input type="text" name="sort" value="" width="5" /><br />
+<textarea name="" rows="5" cols="40"></textarea><br />
+<input type="button" name="save" value="Add Line">
+</form>
+<hr />
+
+
 {% assign lines = site.plan | sort: 'properties.sort' %}
 
 {% for plan in lines %}
