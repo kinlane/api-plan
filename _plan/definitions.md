@@ -22,5 +22,4 @@ links:
   - rel:
       - self
     href: /design/   
-x-sort: 1
 ---

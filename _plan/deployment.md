@@ -21,6 +21,5 @@ entities:
 links:
   - rel:
       - self
-    href: /design/  
-x-sort: 3     
+    href: /design/      
 ---
