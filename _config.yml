@@ -33,3 +33,9 @@ collections:
   plan:
     output: true
     permalink: /plan/:path/
+
+defaults:
+  - scope:
+      type: plan
+    values:
+      layout: plan

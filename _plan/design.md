@@ -1,5 +1,4 @@
 ---
-layout: area
 class:
   - area
 rel:
