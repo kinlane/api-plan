@@ -1,0 +1,10 @@
+class:
+  - line
+rel:
+  - '/rels/line '
+properties:
+  name: test
+  sort: test
+  description: test 123
+entities: []
+array: []
