@@ -32,14 +32,14 @@ function addLine()
   $line['entities'] = [];
   $line['array'] = [];
 
-  $yaml_dump = jsyaml.dump($line);
+  $yaml_dump = '---\n' + jsyaml.dump($line);
 
   console.log($yaml_dump);
 
 	// Set the user/org and the repo
 	$github_owner = 'kinlane';
 	$github_repo = 'api-plan';
-	$file_name = '_plan/' + $file_name;
+	$file_name = '_plan/' + $file_name + .'md';
 
 	$token = 'Authorization: token ' + $github_token;
 	$headers = [$token,'User-Agent: Streaam-To-github'];
