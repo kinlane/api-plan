@@ -32,7 +32,7 @@ function addLine()
   $line['entities'] = [];
   $line['array'] = [];
 
-  $yaml_dump = '---\n' + jsyaml.dump($line);
+  $yaml_dump = '---' + jsyaml.dump($line);
 
   console.log($yaml_dump);
 
