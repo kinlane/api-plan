@@ -4,7 +4,7 @@ class:
 rel:
   - '/rels/line '
 properties:
-  name: test
+  name: Mock
   sort: 5
   description: test 123
 entities: []
