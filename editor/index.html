@@ -32,14 +32,14 @@ function addLine()
   $line['entities'] = [];
   $line['array'] = [];
 
-  $yaml_dump = '---' + jsyaml.dump($line);
+  $yaml_dump = jsyaml.dump($line);
 
   console.log($yaml_dump);
 
 	// Set the user/org and the repo
 	$github_owner = 'kinlane';
 	$github_repo = 'api-plan';
-	$file_name = '_plan/' + $file_name + .'md';
+	$file_name = '_plan/' + $file_name;
 
 	$token = 'Authorization: token ' + $github_token;
 	$headers = [$token,'User-Agent: Streaam-To-github'];
@@ -141,8 +141,9 @@ function updateLine($this)
 </form>
 <hr />
 
+
 {% assign lines = site.plan | sort: 'properties.sort' %}
-{% assign line_count = 1 %}
+
 {% for plan in lines %}
 
   {% assign is_line = 0 %}
@@ -158,10 +159,10 @@ function updateLine($this)
     <input type="text" name="name" value="{{ plan.properties.name }}" width="50" /><br />
     <input type="text" name="sort" value="{{ plan.properties.sort }}" width="5" /><br />
     <textarea name="description" rows="5" cols="40">{{ plan.properties.description }}</textarea><br />
-    <input type="button" name="save" value="Save" onclick="updateLine('{{ line_count }}')">
+    <input type="button" name="save" value="Save">
     </form>
     <hr />
-    {% assign line_count = line_count | plus: 1 %}
+
   {% endif %}
 
 {% endfor %}
